@@ -3,6 +3,8 @@ package ec.pymeapps.micro.app.productos.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +19,13 @@ public class ProductoController {
 	@Autowired
 	private ProductoService service;
 	
+	@Autowired
+	private Environment environment;
+	
+	//otra forma de obtener un valor del application.properties
+	@Value("${server.port}")
+	private Integer port;
+	
 	@GetMapping("/listar")
 	public List<Producto> listar(){
 		return service.findAll();
@@ -24,7 +33,12 @@ public class ProductoController {
 	
 	@GetMapping("/ver/{id}")
 	public Producto ver(@PathVariable Long id){
-		return service.findById(id);
+		
+		Producto prod = service.findById(id);
+		//añado el puerto solo para verificar que este funcioanando el balanceo de carga
+		//prod.setPort(Integer.parseInt(environment.getProperty("local.server.port")));
+		prod.setPort(port);
+		return prod;
 	}
 	
 }
