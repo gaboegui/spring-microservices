@@ -32,12 +32,25 @@ public class ProductoController {
 	}
 	
 	@GetMapping("/ver/{id}")
-	public Producto ver(@PathVariable Long id){
+	public Producto ver(@PathVariable Long id) throws Exception{
 		
 		Producto prod = service.findById(id);
 		//añado el puerto solo para verificar que este funcioanando el balanceo de carga
 		//prod.setPort(Integer.parseInt(environment.getProperty("local.server.port")));
 		prod.setPort(port);
+		
+		
+		// Test de Timeout Hystrix
+		//Thread.sleep(2000L);
+		
+		/*
+		// Test de hystrix ejecucion de fallbackmethod
+		boolean ok=false;
+		if (ok == false) {
+			throw new Exception("No se pudo cargar el producto");
+		}
+		*/
+		
 		return prod;
 	}
 	
