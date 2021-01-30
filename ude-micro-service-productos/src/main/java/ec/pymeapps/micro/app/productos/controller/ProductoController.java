@@ -40,7 +40,7 @@ public class ProductoController {
 		prod.setPort(port);
 		
 		
-		// Test de Timeout Hystrix
+		// Test de Timeout Hystrix y tambien sirve para Zuul
 		//Thread.sleep(2000L);
 		
 		/*
