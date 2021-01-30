@@ -2,6 +2,7 @@ package ec.pymeapps.micro.app.productos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 
 /**
@@ -14,6 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author Editor
  *
  */
+@EnableEurekaClient
 @SpringBootApplication
 public class UdeMicroServiceProductosApplication {
 
