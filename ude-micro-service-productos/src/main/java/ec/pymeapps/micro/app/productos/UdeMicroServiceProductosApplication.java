@@ -5,9 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
- * Para correr en otro puerto como argumento de la VM
+ *  Para arrancar en otro puerto (pobrar el balance de carga) otra instancia 
+ *  poner en los argumentos de la VM el parametro
+ *    
+ *  -Dserver.port=9001
  * 
- * -Dserver.port=9001
  * 
  * @author Editor
  *
