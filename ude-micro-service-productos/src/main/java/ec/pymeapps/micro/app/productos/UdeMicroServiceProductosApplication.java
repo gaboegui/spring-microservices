@@ -2,7 +2,7 @@ package ec.pymeapps.micro.app.productos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+
 
 /**
  *  Para arrancar en otro puerto (pobrar el balance de carga) otra instancia 
@@ -14,8 +14,6 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  * @author Editor
  *
  */
-@EnableEurekaClient
-@SpringBootApplication
 public class UdeMicroServiceProductosApplication {
 
 	public static void main(String[] args) {
