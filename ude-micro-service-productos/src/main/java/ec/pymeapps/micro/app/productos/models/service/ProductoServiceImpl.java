@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import ec.pymeapps.micro.app.productos.models.entity.Producto;
+import ec.pymeapps.micro.commons.app.models.entity.Producto;
 import ec.pymeapps.micro.app.productos.repository.ProductoRepository;
 
 @Service
@@ -27,6 +27,19 @@ public class ProductoServiceImpl implements ProductoService {
 	@Transactional(readOnly = true)
 	public Producto findById(Long id) {
 		return productoDao.findById(id).orElse(null);
+	}
+
+	@Override
+	@Transactional
+	public Producto save(Producto producto) {
+		return productoDao.save(producto);
+	}
+
+	@Override
+	@Transactional
+	public void deleteById(Long id) {
+		productoDao.deleteById(id);
+		
 	}
 
 }

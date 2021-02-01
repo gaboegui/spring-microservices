@@ -2,6 +2,7 @@ package ec.pymeapps.micro.app.productos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 
@@ -11,12 +12,16 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  *    
  *  -Dserver.port=9001
  * 
+ * 	con @EntityScan hago que busque las clases Entity en la libreria commons y las
+ * 	incluye en el contecto de este servicio
+ * 
  * 
  * @author Editor
  *
  */
 @EnableEurekaClient
 @SpringBootApplication
+@EntityScan({"ec.pymeapps.micro.commons.app.models.entity"})
 public class UdeMicroServiceProductosApplication {
 
 	public static void main(String[] args) {
