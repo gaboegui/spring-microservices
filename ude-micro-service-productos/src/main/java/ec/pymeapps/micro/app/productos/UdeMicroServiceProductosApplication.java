@@ -13,10 +13,10 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  *  -Dserver.port=9001
  * 
  * 	con @EntityScan hago que busque las clases Entity en la libreria commons y las
- * 	incluye en el contecto de este servicio
+ * 	incluye en el contexto de este servicio
  * 
  * 
- * @author Editor
+ * @author Gabriel
  *
  */
 @EnableEurekaClient
